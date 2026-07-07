@@ -17,8 +17,8 @@ Browser / curl → API Gateway → Lambda → MongoDB on EC2
 
 ## Prerequisites
 
-- Completed [Lab — Deploy to EC2 with CI/CD](./Lab-Deploy-EC2-CICD.md) — Terraform must be installed
-- Completed [Lab — Lambda REST API](./Lab-Lambda-REST-API.md)
+- Completed [Lab — Deploy to EC2 with CI/CD](./lab-01-ec2-cicd.md) — Terraform must be installed
+- Completed [Lab — Lambda REST API](./lab-03-lambda-rest-api.md)
 - Region: **us-east-1**
 - Python and pip installed on your local machine (to build the Lambda package)
 

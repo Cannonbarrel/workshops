@@ -20,7 +20,7 @@ You will expose two endpoints:
 
 ## Prerequisites
 
-- Completed [Lab — Lambda S3 Trigger](./Lab-Lambda-S3-Trigger.md)
+- Completed [Lab — Lambda S3 Trigger](./lab-02-lambda-s3-trigger.md)
 - Region set to **us-east-1**
 
 ---
