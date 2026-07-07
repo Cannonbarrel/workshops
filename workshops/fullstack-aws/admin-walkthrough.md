@@ -17,7 +17,7 @@ See [`README.md`](README.md) for the design overview (slug derivation, group/pol
 One CSV per cohort. Columns: `username,full_name,cohort`. All rows in one file share the same cohort value.
 
 ```bash
-cd labs/fullstack-aws/terraform-iam
+cd workshops/fullstack-aws/terraform-iam
 cp students.csv.example students.csv
 $EDITOR students.csv
 ```
@@ -84,7 +84,7 @@ Outputs:
 The output file path is exposed as a Terraform output so you don't have to guess the cohort suffix:
 
 ```bash
-cd labs/fullstack-aws/terraform-iam
+cd workshops/fullstack-aws/terraform-iam
 CREDS_FILE=$(terraform output -raw credentials_csv_path)
 
 while IFS=, read -r username full_name console_url console_password region; do
@@ -132,10 +132,10 @@ while IFS=, read -r username _; do
   [[ "$username" == "username" ]] && continue
   slug="${username%@*}"
   python tools/cleanup-student-resources.py --student "$slug" --region us-east-1
-done < ~/workspace/quick-labs/labs/fullstack-aws/terraform-iam/students.csv
+done < ~/workspace/quick-labs/workshops/fullstack-aws/terraform-iam/students.csv
 
 # 2. IAM scaffolding for this cohort (users, group, managed policy, memberships)
-cd ~/workspace/quick-labs/labs/fullstack-aws/terraform-iam
+cd ~/workspace/quick-labs/workshops/fullstack-aws/terraform-iam
 terraform workspace select batch-a
 terraform destroy
 

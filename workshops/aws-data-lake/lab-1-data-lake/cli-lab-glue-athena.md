@@ -14,7 +14,7 @@ Total runtime ~10–15 min including crawler + job waits. Cost ~$0.50.
 
 - AWS CLI configured with **admin** credentials (`aws sts get-caller-identity` works)
 - `~/Downloads/Crude_Oil_historical_data.csv` is in place
-- You're running this from this folder (`labs/aws-data-lake/`) so `oil_csv_to_parquet.py` is at the relative path
+- You're running this from this folder (`workshops/aws-data-lake/`) so `oil_csv_to_parquet.py` is at the relative path
 
 ## Step 0 — variables
 

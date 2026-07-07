@@ -154,7 +154,7 @@ POST /lineage_nodes/_bulk
 ```
 POST /lineage_nodes/_bulk
 {"index":{"_id":"job-001"}}
-{"node_id":"job-001","node_type":"job","name":"raw_ingest_job","description":"Manual or script-driven upload of Crude_Oil_historical_data.csv to the raw S3 prefix. Entry point of the pipeline.","owner":"data-engineering","platform":"S3 CLI / boto3","location":"labs/aws-data-lake/lab-5-cdc/rds-source/load_oil.sh","tags":["ingest","manual","csv"],"created_at":"2024-01-15","updated_at":"2024-11-01"}
+{"node_id":"job-001","node_type":"job","name":"raw_ingest_job","description":"Manual or script-driven upload of Crude_Oil_historical_data.csv to the raw S3 prefix. Entry point of the pipeline.","owner":"data-engineering","platform":"S3 CLI / boto3","location":"workshops/aws-data-lake/lab-5-cdc/rds-source/load_oil.sh","tags":["ingest","manual","csv"],"created_at":"2024-01-15","updated_at":"2024-11-01"}
 {"index":{"_id":"job-002"}}
 {"node_id":"job-002","node_type":"job","name":"oil_crawler","description":"Glue Crawler that scans the raw S3 prefix and upserts schema into the Glue Data Catalog. Detects new partitions and schema changes.","owner":"data-engineering","platform":"Glue Crawler","location":"aws://glue/crawlers/quicklabs-studentNN-oil-crawler","tags":["crawler","glue","schema-discovery"],"created_at":"2024-01-16","updated_at":"2024-11-01"}
 {"index":{"_id":"job-003"}}

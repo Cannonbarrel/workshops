@@ -53,7 +53,7 @@ Each project has working Terraform, a deploy script, and a GitHub Actions pipeli
 
 ```bash
 git clone https://github.com/becloudready/workshops.git
-cd workshops/labs/fullstack-aws
+cd workshops/fullstack-aws
 ```
 
 Prerequisites: AWS account (free tier works), AWS CLI, Terraform, Node.js 18+, Python 3.10+, Git.

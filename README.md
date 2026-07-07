@@ -8,11 +8,11 @@ Hands-on workshop labs built by [BeCloudReady](https://becloudready.com) for eng
 
 | Workshop | What you build | Stack |
 |---|---|---|
-| [`labs/aws-data-lake/`](labs/aws-data-lake/) | End-to-end data lake — raw ingestion → ETL → governance → CDC → analytics | S3, Glue, Athena, Lake Formation, Redshift, DMS, OpenSearch |
-| [`labs/aws-iam-policy/`](labs/aws-iam-policy/) | Read, predict, and write IAM policies using a real sandbox policy as the textbook | IAM, CloudShell |
-| [`labs/fullstack-aws/`](labs/fullstack-aws/) | Full-stack app on AWS — React + FastAPI + MongoDB + Terraform + CI/CD, 7 chapters + 4 deployable projects | React, FastAPI, Lambda, S3, DynamoDB, API Gateway, Terraform, GitHub Actions |
-| [`labs/equipment-inspection/`](labs/equipment-inspection/) | Versioned inspection photos for IoT / oil & gas equipment — presigned S3 upload, DynamoDB metadata, version history UI | React, FastAPI, S3, DynamoDB, Terraform |
-| [`labs/databricks-db-agent-lakebase/`](labs/databricks-db-agent-lakebase/) | Text-to-SQL agent backed by Lakebase (Postgres), Databricks Unity Catalog, and a self-hosted vLLM endpoint | Databricks, Delta Lake, vLLM |
+| [`workshops/aws-data-lake/`](workshops/aws-data-lake/) | End-to-end data lake — raw ingestion → ETL → governance → CDC → analytics | S3, Glue, Athena, Lake Formation, Redshift, DMS, OpenSearch |
+| [`workshops/aws-iam-policy/`](workshops/aws-iam-policy/) | Read, predict, and write IAM policies using a real sandbox policy as the textbook | IAM, CloudShell |
+| [`workshops/fullstack-aws/`](workshops/fullstack-aws/) | Full-stack app on AWS — React + FastAPI + MongoDB + Terraform + CI/CD, 7 chapters + 4 deployable projects | React, FastAPI, Lambda, S3, DynamoDB, API Gateway, Terraform, GitHub Actions |
+| [`workshops/equipment-inspection/`](workshops/equipment-inspection/) | Versioned inspection photos for IoT / oil & gas equipment — presigned S3 upload, DynamoDB metadata, version history UI | React, FastAPI, S3, DynamoDB, Terraform |
+| [`workshops/databricks-db-agent-lakebase/`](workshops/databricks-db-agent-lakebase/) | Text-to-SQL agent backed by Lakebase (Postgres), Databricks Unity Catalog, and a self-hosted vLLM endpoint | Databricks, Delta Lake, vLLM |
 
 ### Full-Stack on AWS — 7-chapter curriculum
 
