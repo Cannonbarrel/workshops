@@ -13,7 +13,7 @@
 ### Step 1: Navigate to the Terraform folder
 
 ```bash
-cd Chapter-6/terraform-ec2
+cd chapters/06-cloud-cicd/terraform
 ```
 
 ### Step 2: Initialize Terraform
@@ -42,8 +42,11 @@ Type `yes` when prompted. Wait about 30 seconds.
 
 ```
 instance_public_ip = "54.123.45.67"
-ssh_command        = "ssh -i ssh-keys/student-employee-app-key.pem ubuntu@54.123.45.67"
+ssh_command        = "ssh -i ssh-keys/student-<your-slug>-employee-app-key.pem ubuntu@54.123.45.67"
+pem_path           = "ssh-keys/student-<your-slug>-employee-app-key.pem"
 ```
+
+Terraform writes the private key to `ssh-keys/` inside the terraform folder. Copy the exact `ssh_command` value from your output — the filename includes your student slug.
 
 Save the public IP — you will need it throughout this lab.
 
@@ -56,7 +59,8 @@ Save the public IP — you will need it throughout this lab.
 Use the `ssh_command` from the Terraform output:
 
 ```bash
-ssh -i ssh-keys/student-employee-app-key.pem ubuntu@YOUR_EC2_IP
+# Use the exact ssh_command from terraform output — or construct it:
+ssh -i ssh-keys/student-<your-slug>-employee-app-key.pem ubuntu@YOUR_EC2_IP
 ```
 
 ### Step 2: Copy and run the setup script
@@ -137,11 +141,11 @@ Add these three secrets:
 |--------|-------|
 | `EC2_HOST` | Your EC2 public IP (e.g. `54.123.45.67`) |
 | `EC2_USER` | `ubuntu` |
-| `EC2_SSH_KEY` | Full contents of `ssh-keys/student-employee-app-key.pem` |
+| `EC2_SSH_KEY` | Full contents of the `.pem` file written by Terraform |
 
-To get the key contents:
+To get the key contents (run from `workshops/fullstack-aws/`):
 ```bash
-cat Chapter-6/terraform-ec2/ssh-keys/student-employee-app-key.pem
+cat chapters/06-cloud-cicd/terraform/ssh-keys/student-<your-slug>-employee-app-key.pem
 ```
 Copy everything including the `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----` lines.
 
@@ -229,7 +233,7 @@ Refresh the browser — your change is live within seconds.
 When done, destroy all AWS resources to avoid charges:
 
 ```bash
-cd Chapter-6/terraform-ec2
+cd chapters/06-cloud-cicd/terraform
 terraform destroy
 ```
 
