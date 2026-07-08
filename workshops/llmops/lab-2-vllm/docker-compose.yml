@@ -1,0 +1,36 @@
+services:
+  vllm:
+    image: vllm/vllm-openai:latest
+    container_name: vllm
+    runtime: nvidia
+    networks:
+      - llmops-net
+    ports:
+      - "8000:8000"
+    ipc: host
+    environment:
+      HF_TOKEN: ${HF_TOKEN}
+      NVIDIA_VISIBLE_DEVICES: all
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility
+    volumes:
+      - ${HOME}/.cache/huggingface:/root/.cache/huggingface
+    command:
+      - --model
+      - Qwen/Qwen3-0.6B
+      - --dtype
+      - float16
+      - --gpu-memory-utilization
+      - "0.92"
+      - --max-model-len
+      - "2048"
+      - --max-num-seqs
+      - "256"
+      - --max-num-batched-tokens
+      - "65536"
+      - --enable-prefix-caching
+      - --disable-log-requests
+    restart: unless-stopped
+
+networks:
+  llmops-net:
+    external: true

@@ -1,0 +1,19 @@
+general_settings:
+  master_key: "llmops-workshop-key"   # change this — used for admin API and UI login
+
+litellm_settings:
+  max_budget: 10
+  budget_duration: 30d
+
+model_list:
+  - model_name: qwen3-0.6b
+    litellm_params:
+      model: openai/Qwen/Qwen3-0.6B   # openai/ prefix = OpenAI-compatible endpoint
+      api_base: http://vllm:8000/v1
+      api_key: "not-needed"            # vLLM doesn't require auth by default
+      timeout: 120
+
+router_settings:
+  default_litellm_params:
+    temperature: 0.2
+    max_tokens: 1024

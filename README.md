@@ -13,6 +13,7 @@ Hands-on workshop labs built by [BeCloudReady](https://becloudready.com) for eng
 | [`workshops/fullstack-aws/`](workshops/fullstack-aws/) | Full-stack app on AWS — React + FastAPI + MongoDB + Terraform + CI/CD, 7 chapters + 4 deployable projects | React, FastAPI, Lambda, S3, DynamoDB, API Gateway, Terraform, GitHub Actions |
 | [`workshops/equipment-inspection/`](workshops/equipment-inspection/) | Versioned inspection photos for IoT / oil & gas equipment — presigned S3 upload, DynamoDB metadata, version history UI | React, FastAPI, S3, DynamoDB, Terraform |
 | [`workshops/databricks-db-agent-lakebase/`](workshops/databricks-db-agent-lakebase/) | Text-to-SQL agent backed by Lakebase (Postgres), Databricks Unity Catalog, and a self-hosted vLLM endpoint | Databricks, Delta Lake, vLLM |
+| [`workshops/llmops/`](workshops/llmops/) | Deploy, observe, and route production LLM workloads on a neo-cloud GPU — vLLM serving + Prometheus/Grafana + LiteLLM gateway with virtual keys and spend tracking | vLLM, LiteLLM, Prometheus, Grafana, DCGM, Docker, Ansible |
 
 ### Full-Stack on AWS — 7-chapter curriculum
 

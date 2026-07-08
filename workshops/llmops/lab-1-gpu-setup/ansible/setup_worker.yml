@@ -1,0 +1,8 @@
+---
+- name: Setup GPU worker for LLMOps workshop
+  hosts: llm_workers
+  become: true
+  gather_facts: true
+  roles:
+    - docker_install
+    - nvidia-toolkit
