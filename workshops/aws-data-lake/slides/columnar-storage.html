@@ -8,7 +8,7 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    background: #0f1117;
+    background: #020617;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     color: #f1f5f9;
     padding: 40px 0;
@@ -21,11 +21,11 @@
     margin: 40px auto;
     padding: 56px 72px;
     border-radius: 12px;
-    background: linear-gradient(135deg, #0a1a0f 0%, #0d1f14 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #0a1830 100%);
     position: relative;
     display: flex;
     flex-direction: column;
-    border: 1px solid rgba(255,153,0,0.12);
+    border: 1px solid rgba(62,173,243,0.12);
     box-shadow: 0 8px 40px rgba(0,0,0,0.6);
   }
 
@@ -34,7 +34,7 @@
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #FF9900;
+    color: #3eadf3;
     margin-bottom: 16px;
   }
 
@@ -55,7 +55,7 @@
 
   .divider {
     height: 2px;
-    background: linear-gradient(90deg, #FF9900 0%, transparent 100%);
+    background: linear-gradient(90deg, #3eadf3 0%, transparent 100%);
     margin-bottom: 28px;
     width: 80px;
   }
@@ -98,7 +98,7 @@
   }
 
   tbody tr:hover {
-    background: rgba(255,153,0,0.05);
+    background: rgba(62,173,243,0.05);
   }
 
   tbody td {
@@ -111,7 +111,7 @@
   }
 
   tbody td:first-child {
-    border-left: 3px solid #FF9900;
+    border-left: 3px solid #3eadf3;
     color: #e2e8f0;
     font-weight: 500;
   }
@@ -171,9 +171,9 @@
   }
 
   .info-box {
-    background: rgba(255,153,0,0.07);
-    border: 1px solid rgba(255,153,0,0.25);
-    border-left: 4px solid #FF9900;
+    background: rgba(62,173,243,0.07);
+    border: 1px solid rgba(62,173,243,0.25);
+    border-left: 4px solid #3eadf3;
     border-radius: 8px;
     padding: 14px 18px;
     margin: 14px 0;
@@ -191,7 +191,7 @@
 
   .storage-block {
     background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,153,0,0.15);
+    border: 1px solid rgba(62,173,243,0.15);
     border-radius: 8px;
     padding: 18px 20px;
   }
@@ -199,7 +199,7 @@
   .storage-block h3 {
     font-size: 14px;
     font-weight: 700;
-    color: #FF9900;
+    color: #3eadf3;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 10px;
@@ -213,8 +213,8 @@
 
   .stat-card {
     flex: 1;
-    background: rgba(255,153,0,0.07);
-    border: 1px solid rgba(255,153,0,0.2);
+    background: rgba(62,173,243,0.07);
+    border: 1px solid rgba(62,173,243,0.2);
     border-radius: 8px;
     padding: 14px 16px;
     text-align: center;
@@ -223,7 +223,7 @@
   .stat-card .number {
     font-size: 26px;
     font-weight: 800;
-    color: #FF9900;
+    color: #3eadf3;
     display: block;
   }
 
@@ -266,17 +266,31 @@
     gap: 12px;
     padding: 10px 14px;
     background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,153,0,0.1);
-    border-left: 3px solid #FF9900;
+    border: 1px solid rgba(62,173,243,0.1);
+    border-left: 3px solid #3eadf3;
     border-radius: 6px;
     font-size: 13.5px;
   }
 
   .platform-item .num {
-    color: #FF9900;
+    color: #3eadf3;
     font-weight: 800;
     font-size: 16px;
     min-width: 24px;
+  }
+
+  @media print {
+    @page { size: 1280px 720px; margin: 0; }
+    .slide {
+      break-after: page;
+      page-break-after: always;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      box-shadow: none;
+      margin: 0 auto;
+    }
+    .slide:last-of-type { break-after: auto; page-break-after: auto; }
+    hr.divider, hr.slide-divider { display: none; }
   }
 </style>
 </head>
@@ -366,7 +380,7 @@ Block C: [r1.col3, r2.col3, r3.col3, r4.col3 ...]</code></pre>
     </tbody>
   </table>
 
-  <h2 style="font-size:17px; color:#FF9900; margin-top:20px; margin-bottom:14px;">The Math at Scale</h2>
+  <h2 style="font-size:17px; color:#3eadf3; margin-top:20px; margin-bottom:14px;">The Math at Scale</h2>
 
   <div class="stat-row">
     <div class="stat-card">
@@ -406,7 +420,7 @@ Block C: [r1.col3, r2.col3, r3.col3, r4.col3 ...]</code></pre>
         <th>Column Shape</th>
         <th>Redshift Encoding</th>
         <th>What It Does</th>
-        <th>Typical Ratio</th>
+        <th>Best Fit</th>
       </tr>
     </thead>
     <tbody>
@@ -414,37 +428,37 @@ Block C: [r1.col3, r2.col3, r3.col3, r4.col3 ...]</code></pre>
         <td>Few distinct values (region: US-W / US-E / EU)</td>
         <td>BYTEDICT</td>
         <td>Map each distinct value to a small integer ID</td>
-        <td>~40×</td>
+        <td>Optimal under 256 distinct values; especially strong on long strings</td>
       </tr>
       <tr>
         <td>Sequential dates / IDs (order_id: 1001, 1002...)</td>
         <td>DELTA</td>
         <td>Store each value as offset from previous</td>
-        <td>~30×</td>
+        <td>Effective when the deltas between consecutive values are small</td>
       </tr>
       <tr>
         <td>Long runs of same value (status: "active"...)</td>
         <td>RUNLENGTH</td>
         <td>Store "value × N consecutive copies"</td>
-        <td>10–100×</td>
+        <td>Best on columns with long, sorted runs of repeats — not sort keys</td>
       </tr>
       <tr>
         <td>Numerics with limited range</td>
         <td>AZ64</td>
-        <td>Specialized numeric compression</td>
-        <td>2–5×</td>
+        <td>AWS's proprietary numeric/date/time compression algorithm</td>
+        <td>Redshift's default for most numeric, date, and timestamp columns</td>
       </tr>
       <tr>
         <td>General-purpose fallback</td>
         <td>ZSTD</td>
         <td>Modern general-purpose compression</td>
-        <td>3–10×</td>
+        <td>Broad type support; strong all-around default, especially for text</td>
       </tr>
     </tbody>
   </table>
 
   <div class="info-box" style="margin-top:16px;">
-    A typical Redshift table occupies <strong>3–10× less disk</strong> than the same data in Postgres — which also means 3–10× less I/O per query.
+    Columnar tables with the right encodings occupy meaningfully less disk than the same data stored row-wise — and less disk read per query means less I/O and a faster query. AWS doesn't publish a single universal compression ratio; the actual savings depend on the specific data's cardinality and distribution.
   </div>
 
   <div class="slide-number">03 / 05</div>
@@ -458,7 +472,7 @@ Block C: [r1.col3, r2.col3, r3.col3, r4.col3 ...]</code></pre>
 
   <div class="two-col">
     <div>
-      <h2 style="font-size:17px; color:#FF9900; margin-bottom:10px;">Zone Maps</h2>
+      <h2 style="font-size:17px; color:#3eadf3; margin-bottom:10px;">Zone Maps</h2>
       <p style="font-size:13.5px;">Block-level min/max metadata. Before reading a block, the planner asks: "could this block contain rows matching my WHERE clause?"</p>
       <pre><code>WHERE order_date BETWEEN '2024-01-15'
                      AND '2024-01-17'</code></pre>
@@ -500,19 +514,19 @@ Block C: [r1.col3, r2.col3, r3.col3, r4.col3 ...]</code></pre>
       </table>
     </div>
     <div>
-      <h2 style="font-size:17px; color:#FF9900; margin-bottom:10px;">Sort Keys</h2>
+      <h2 style="font-size:17px; color:#3eadf3; margin-bottom:10px;">Sort Keys</h2>
       <p style="font-size:13.5px;">Physically cluster related rows so zone maps become highly selective:</p>
       <pre><code>CREATE TABLE orders (...)
   SORTKEY (order_date);</code></pre>
       <p style="font-size:13.5px;">Now <code>order_date</code> values are tightly clustered — block 1 holds Jan 2020, block 2 Feb 2020, and so on. Zone maps skip entire months in a single check.</p>
       <div class="info-box" style="margin-top:14px; font-size:13px;">
-        With years of data, queries often scan <strong>fractions of 1%</strong> of the table due to zone map skipping.
+        With years of data and a well-chosen sort key, a date-filtered query can skip the large majority of blocks entirely via zone map checks.
       </div>
     </div>
   </div>
 
   <div class="info-box" style="margin-top:20px;">
-    <strong style="color:#FF9900">The lesson:</strong> Columnar storage gives column-level pruning. Zone maps + sort keys give row-level pruning within those columns. They compound.
+    <strong style="color:#3eadf3">The lesson:</strong> Columnar storage gives column-level pruning. Zone maps + sort keys give row-level pruning within those columns. They compound.
   </div>
 
   <div class="slide-number">04 / 05</div>
@@ -566,12 +580,12 @@ Block C: [r1.col3, r2.col3, r3.col3, r4.col3 ...]</code></pre>
       <tr>
         <td>Compression of cold archival data</td>
         <td>❌ Mixed-type blocks</td>
-        <td>✅ 3–10× smaller</td>
+        <td>✅ Meaningfully smaller on disk</td>
       </tr>
     </tbody>
   </table>
 
-  <h2 style="font-size:17px; color:#FF9900; margin-top:20px; margin-bottom:10px;">Practical Pattern in Modern Data Platforms</h2>
+  <h2 style="font-size:17px; color:#3eadf3; margin-top:20px; margin-bottom:10px;">Practical Pattern in Modern Data Platforms</h2>
   <div class="platform-stack">
     <div class="platform-item">
       <span class="num">1</span>

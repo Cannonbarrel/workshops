@@ -203,9 +203,9 @@
     }
 
     .slide-1 .day-pill {
-      background: #dbeafe;
-      color: #1d4ed8;
-      border: 1px solid #93c5fd;
+      background: #daf0ff;
+      color: #1276c0;
+      border: 1px solid #7dd0ff;
     }
 
     /* Module 1 — AWS Intro */
@@ -263,9 +263,9 @@
     }
 
     .slide-2 .day-pill {
-      background: #cffafe;
-      color: #0e7490;
-      border: 1px solid #67e8f9;
+      background: #daf0ff;
+      color: #1276c0;
+      border: 1px solid #7dd0ff;
     }
 
     /* Module 5 — Lake Formation */
@@ -448,6 +448,20 @@
     .ct-cell.hdr { font-weight: 700; font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: #64748b; background: #f1f5f9; }
     .ct-cell.c-ath { background: #f5f3ff; border-color: #c4b5fd; color: #3730a3; }
     .ct-cell.c-red { background: #ecfeff; border-color: #a5f3fc; color: #164e63; }
+
+    @media print {
+      @page { size: 1280px 720px; margin: 0; }
+      .slide {
+        break-after: page;
+        page-break-after: always;
+        break-inside: avoid;
+        page-break-inside: avoid;
+        box-shadow: none;
+        margin: 0 auto;
+      }
+      .slide:last-of-type { break-after: auto; page-break-after: auto; }
+      hr.divider, hr.slide-divider { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -686,7 +700,6 @@
         <li>Principals (users/roles) query via Athena, Redshift Spectrum, or EMR</li>
         <li>LF acts as the enforcement point — Athena asks LF if you can see the table</li>
         <li>Glue crawler still populates catalog schema; LF controls who sees it</li>
-        <li>Service-linked role: <code>AWSServiceRoleForLakeFormationDataAccess</code> is created automatically</li>
       </ul>
       <div class="callout-box cb-teal" style="margin-top:6px;">
         <strong>Key mental model:</strong> S3 holds the bytes. Glue catalogs the schema. Lake Formation decides who can read it.
@@ -696,11 +709,9 @@
     <div class="detail-panel dp-blue">
       <div class="panel-title">Setup Flow &amp; Dual-Layer Model</div>
       <ul class="detail-list">
-        <li><strong>Step 1:</strong> Designate a Data Lake Administrator in the LF console</li>
-        <li><strong>Step 2:</strong> Register S3 locations — LF now manages access to those paths</li>
-        <li><strong>Step 3:</strong> Create databases &amp; tables in the Data Catalog (Glue crawler or manual DDL)</li>
-        <li><strong>Step 4:</strong> Grant LF permissions to IAM principals (users, roles, groups)</li>
-        <li><strong>Step 5:</strong> Grant Athena workgroup or Redshift namespace access to query</li>
+        <li>Designate a Data Lake Administrator, then register S3 locations — LF now manages access to those paths</li>
+        <li>Create databases &amp; tables in the Data Catalog (Glue crawler or manual DDL), then grant LF permissions to IAM principals</li>
+        <li>Grant Athena workgroup or Redshift namespace access to query</li>
         <li>Revoke the default <em>"IAMAllowedPrincipals"</em> super-grant — otherwise IAM alone can bypass LF</li>
       </ul>
       <div class="callout-box cb-blue" style="margin-top:8px;">
@@ -759,23 +770,13 @@
         </div>
         <div class="ph-row ph-tbl">
           <span class="ph-icon">📋</span>
-          <span class="ph-label">Table-level</span>
-          <span class="ph-desc">Access to one specific table</span>
-        </div>
-        <div class="ph-row ph-col">
-          <span class="ph-icon">📊</span>
-          <span class="ph-label">Column-level</span>
-          <span class="ph-desc">Include or exclude specific columns per role</span>
-        </div>
-        <div class="ph-row ph-rfl">
-          <span class="ph-icon">🔎</span>
-          <span class="ph-label">Row-level filter</span>
-          <span class="ph-desc">WHERE-clause condition attached to the principal</span>
+          <span class="ph-label">Table &amp; column-level</span>
+          <span class="ph-desc">One specific table; include/exclude specific columns per role</span>
         </div>
         <div class="ph-row ph-cell">
           <span class="ph-icon">🔐</span>
-          <span class="ph-label">Cell-level security</span>
-          <span class="ph-desc">Column exclusion + row filter combined</span>
+          <span class="ph-label">Row &amp; cell-level filters</span>
+          <span class="ph-desc">WHERE-clause row filter, optionally combined with column exclusion (cell-level = both together)</span>
         </div>
       </div>
       <div class="callout-box cb-teal" style="margin-top:10px;">
@@ -786,10 +787,8 @@
     <div class="detail-panel dp-indigo">
       <div class="panel-title">LF-Tags for ABAC (Attribute-Based Access Control)</div>
       <ul class="detail-list">
-        <li>Assign tags to <strong>resources</strong> (databases, tables, columns)</li>
-        <li>Assign matching tags to <strong>principals</strong> (IAM users / roles)</li>
-        <li>Access = tag match — no explicit per-table grants needed</li>
-        <li>New tables tagged correctly are automatically accessible to matching principals</li>
+        <li>Assign tags to <strong>resources</strong> (databases, tables, columns) and matching tags to <strong>principals</strong> (IAM users/roles)</li>
+        <li>Access = tag match — no explicit per-table grants needed; new tables tagged correctly are automatically accessible</li>
         <li>Eliminates the O(tables × roles) grant explosion of traditional RBAC</li>
       </ul>
       <div class="lftag-grid" style="margin: 8px 0;">
@@ -903,19 +902,9 @@
           <div class="ct-cell c-red">Loaded into Redshift</div>
         </div>
         <div class="ct-row">
-          <div class="ct-cell">Infrastructure</div>
-          <div class="ct-cell c-ath">Zero — fully serverless</div>
-          <div class="ct-cell c-red">Provisioned or serverless</div>
-        </div>
-        <div class="ct-row">
           <div class="ct-cell">LF governance</div>
           <div class="ct-cell c-ath">Full (column / row filters)</div>
           <div class="ct-cell c-red">Via Spectrum + LF</div>
-        </div>
-        <div class="ct-row">
-          <div class="ct-cell">Data freshness</div>
-          <div class="ct-cell c-ath">Live (queries S3 directly)</div>
-          <div class="ct-cell c-red">As fresh as last COPY / CDC</div>
         </div>
       </div>
       <div class="callout-box cb-blue" style="margin-top:10px;">
@@ -984,7 +973,7 @@
         <li><strong>full-load:</strong> initial snapshot of all existing rows</li>
         <li><strong>cdc:</strong> capture ongoing inserts / updates / deletes only</li>
         <li><strong>full-load-and-cdc:</strong> snapshot first, seamlessly switch to live capture</li>
-        <li>Source prerequisite: logical replication ON + replication slot created</li>
+        <li>Source prerequisite: logical replication ON + replication slot created (WAL-level mechanics — see Module 7: CDC)</li>
         <li>Replication Instance size drives throughput — scale up for large tables</li>
         <li>LOB columns (BLOB / CLOB): use Limited LOB Mode for best performance</li>
         <li><strong>Batch apply mode:</strong> buffer changes, write in batches to Redshift — better throughput than row-by-row</li>

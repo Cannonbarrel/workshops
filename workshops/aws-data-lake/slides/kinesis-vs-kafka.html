@@ -8,7 +8,7 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    background: #0f1117;
+    background: #020617;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     color: #f1f5f9;
     padding: 40px 0;
@@ -21,11 +21,11 @@
     margin: 40px auto;
     padding: 56px 72px;
     border-radius: 12px;
-    background: linear-gradient(135deg, #160f20 0%, #1e1030 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #0a1830 100%);
     position: relative;
     display: flex;
     flex-direction: column;
-    border: 1px solid rgba(255,153,0,0.12);
+    border: 1px solid rgba(62,173,243,0.12);
     box-shadow: 0 8px 40px rgba(0,0,0,0.6);
   }
 
@@ -34,7 +34,7 @@
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #FF9900;
+    color: #3eadf3;
     margin-bottom: 16px;
   }
 
@@ -62,7 +62,7 @@
 
   .divider {
     height: 2px;
-    background: linear-gradient(90deg, #FF9900 0%, transparent 100%);
+    background: linear-gradient(90deg, #3eadf3 0%, transparent 100%);
     margin-bottom: 32px;
     width: 80px;
   }
@@ -105,7 +105,7 @@
   }
 
   tbody tr:hover {
-    background: rgba(255,153,0,0.05);
+    background: rgba(62,173,243,0.05);
   }
 
   tbody td {
@@ -118,7 +118,7 @@
   }
 
   tbody td:first-child {
-    border-left: 3px solid #FF9900;
+    border-left: 3px solid #3eadf3;
     color: #e2e8f0;
     font-weight: 500;
   }
@@ -180,9 +180,9 @@
   }
 
   .info-box {
-    background: rgba(255,153,0,0.07);
-    border: 1px solid rgba(255,153,0,0.25);
-    border-left: 4px solid #FF9900;
+    background: rgba(62,173,243,0.07);
+    border: 1px solid rgba(62,173,243,0.25);
+    border-left: 4px solid #3eadf3;
     border-radius: 8px;
     padding: 14px 18px;
     margin: 16px 0;
@@ -200,14 +200,14 @@
 
   .model-card {
     background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,153,0,0.2);
-    border-top: 3px solid #FF9900;
+    border: 1px solid rgba(62,173,243,0.2);
+    border-top: 3px solid #3eadf3;
     border-radius: 10px;
     padding: 20px 22px;
   }
 
   .model-card h3 {
-    color: #FF9900;
+    color: #3eadf3;
     font-size: 15px;
     font-weight: 700;
     margin-bottom: 8px;
@@ -222,8 +222,8 @@
 
   .badge {
     display: inline-block;
-    background: rgba(255,153,0,0.15);
-    color: #FF9900;
+    background: rgba(62,173,243,0.15);
+    color: #3eadf3;
     font-size: 10px;
     font-weight: 700;
     padding: 2px 7px;
@@ -231,6 +231,20 @@
     letter-spacing: 0.5px;
     text-transform: uppercase;
     margin-right: 4px;
+  }
+
+  @media print {
+    @page { size: 1280px 720px; margin: 0; }
+    .slide {
+      break-after: page;
+      page-break-after: always;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      box-shadow: none;
+      margin: 0 auto;
+    }
+    .slide:last-of-type { break-after: auto; page-break-after: auto; }
+    hr.divider, hr.slide-divider { display: none; }
   }
 </style>
 </head>
@@ -306,7 +320,7 @@
   </table>
 
   <div class="info-box">
-    <strong style="color:#FF9900">Mnemonic:</strong> Streams = <em>stream</em> (you build on top). Firehose = <em>hose</em> (point at a sink, water flows).
+    <strong style="color:#3eadf3">Mnemonic:</strong> Streams = <em>stream</em> (you build on top). Firehose = <em>hose</em> (point at a sink, water flows).
   </div>
 
   <div class="slide-number">01 / 04</div>
@@ -371,7 +385,7 @@
   </table>
 
   <div class="info-box">
-    <strong style="color:#FF9900">One-liner:</strong> "Kinesis Data Streams = managed Kafka brokers + topics with <em>shards</em> instead of <em>partitions</em>, and tighter throughput caps."
+    <strong style="color:#3eadf3">One-liner:</strong> "Kinesis Data Streams = managed Kafka brokers + topics with <em>shards</em> instead of <em>partitions</em>, and tighter throughput caps."
   </div>
 
   <div class="slide-number">02 / 04</div>
@@ -431,7 +445,7 @@
   </table>
 
   <div class="info-box">
-    <strong style="color:#FF9900">Pattern:</strong> AWS slices Kafka's monolith into separately managed services. Each handles less but is fully managed — no JVMs, no ZooKeeper / KRaft, no disk capacity planning.
+    <strong style="color:#3eadf3">Pattern:</strong> AWS slices Kafka's monolith into separately managed services. Each handles less but is fully managed — no JVMs, no ZooKeeper / KRaft, no disk capacity planning.
   </div>
 
   <div class="slide-number">03 / 04</div>
@@ -485,7 +499,7 @@
     </tbody>
   </table>
 
-  <h2 style="font-size:17px; margin-top:24px; margin-bottom:12px; color:#FF9900;">When to Pick</h2>
+  <h2 style="font-size:17px; margin-top:24px; margin-bottom:12px; color:#3eadf3;">When to Pick</h2>
   <ul>
     <li><strong>Kinesis Data Streams:</strong> zero broker ops, team deep in AWS, per-shard caps work for your volume</li>
     <li><strong>Amazon MSK:</strong> existing Kafka code, need exactly-once, or Confluent ecosystem (speaks real Kafka protocol)</li>

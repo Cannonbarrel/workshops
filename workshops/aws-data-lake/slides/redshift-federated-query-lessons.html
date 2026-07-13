@@ -9,7 +9,7 @@
 
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
-      background: #0f1117;
+      background: #020617;
       color: #e2e8f0;
       display: flex;
       flex-direction: column;
@@ -40,14 +40,14 @@
 
     /* ── Slide 1 colours ─────────────────────────────────── */
     .slide-1 {
-      background: linear-gradient(145deg, #0f1a2e 0%, #152238 100%);
-      border: 1px solid #1e3a5f;
+      background: linear-gradient(145deg, #0f172a 0%, #0a1830 100%);
+      border: 1px solid #123a5c;
     }
 
     /* ── Slide 2 colours ─────────────────────────────────── */
     .slide-2 {
-      background: linear-gradient(145deg, #1a0f0f 0%, #2a1515 100%);
-      border: 1px solid #5f1e1e;
+      background: linear-gradient(145deg, #1f130f 0%, #2a1712 100%);
+      border: 1px solid #4a2318;
     }
 
     /* ── Typography ──────────────────────────────────────── */
@@ -56,11 +56,11 @@
       font-weight: 700;
       letter-spacing: .18em;
       text-transform: uppercase;
-      color: #60a5fa;
+      color: #3eadf3;
       margin-bottom: 10px;
     }
 
-    .slide-2 .eyebrow { color: #f87171; }
+    .slide-2 .eyebrow { color: #ff5f46; }
 
     h1 {
       font-size: 38px;
@@ -86,8 +86,8 @@
     }
 
     .arch-box {
-      background: #1e3a5f;
-      border: 1.5px solid #3b82f6;
+      background: #123a5c;
+      border: 1.5px solid #3eadf3;
       border-radius: 10px;
       padding: 18px 28px;
       text-align: center;
@@ -95,12 +95,12 @@
     }
 
     .arch-box .icon { font-size: 28px; margin-bottom: 6px; }
-    .arch-box .label { font-size: 15px; font-weight: 700; color: #bfdbfe; }
+    .arch-box .label { font-size: 15px; font-weight: 700; color: #daf0ff; }
     .arch-box .sub   { font-size: 12px; color: #64748b; margin-top: 4px; }
 
     .arch-arrow {
       font-size: 22px;
-      color: #3b82f6;
+      color: #3eadf3;
       padding: 0 12px;
       user-select: none;
     }
@@ -123,7 +123,7 @@
 
     .info-card {
       background: rgba(255,255,255,.04);
-      border: 1px solid #1e3a5f;
+      border: 1px solid #123a5c;
       border-radius: 8px;
       padding: 18px 20px;
     }
@@ -133,7 +133,7 @@
       font-weight: 700;
       letter-spacing: .08em;
       text-transform: uppercase;
-      color: #60a5fa;
+      color: #3eadf3;
       margin-bottom: 10px;
     }
 
@@ -146,7 +146,7 @@
 
     .info-card ul li::before {
       content: "▸ ";
-      color: #60a5fa;
+      color: #3eadf3;
     }
 
     /* ── Gotcha list (slide 2) ───────────────────────────── */
@@ -160,7 +160,7 @@
     .gotcha-item {
       background: rgba(255,255,255,.04);
       border: 1px solid #3f1515;
-      border-left: 4px solid #ef4444;
+      border-left: 4px solid #ff5f46;
       border-radius: 6px;
       padding: 16px 18px;
       display: flex;
@@ -169,27 +169,27 @@
     }
 
     .gotcha-item.warn {
-      border-left-color: #f59e0b;
+      border-left-color: #fb923c;
     }
 
     .gotcha-num {
       font-size: 22px;
       font-weight: 900;
-      color: #ef4444;
+      color: #ff5f46;
       line-height: 1;
       min-width: 28px;
     }
 
-    .gotcha-item.warn .gotcha-num { color: #f59e0b; }
+    .gotcha-item.warn .gotcha-num { color: #fb923c; }
 
     .gotcha-text h4 {
       font-size: 15px;
       font-weight: 700;
-      color: #fca5a5;
+      color: #ffb3a3;
       margin-bottom: 4px;
     }
 
-    .gotcha-item.warn .gotcha-text h4 { color: #fcd34d; }
+    .gotcha-item.warn .gotcha-text h4 { color: #fed7aa; }
 
     .gotcha-text p {
       font-size: 13px;
@@ -203,27 +203,37 @@
       background: rgba(0,0,0,.3);
       padding: 1px 5px;
       border-radius: 3px;
-      color: #7dd3fc;
+      color: #7dd0ff;
     }
 
     /* ── Hero badge (slide 2) ────────────────────────────── */
     .hero-badge {
       display: inline-block;
-      background: #7f1d1d;
-      border: 1px solid #ef4444;
+      background: #4d1f16;
+      border: 1px solid #ff5f46;
       border-radius: 6px;
       padding: 8px 18px;
       font-size: 13px;
       font-weight: 700;
-      color: #fca5a5;
+      color: #ffb3a3;
       letter-spacing: .06em;
       margin-bottom: 32px;
       align-self: flex-start;
     }
 
     @media print {
+      @page { size: 1280px 720px; margin: 0; }
       body { background: white; }
-      .slide { box-shadow: none; }
+      .slide {
+        break-after: page;
+        page-break-after: always;
+        break-inside: avoid;
+        page-break-inside: avoid;
+        box-shadow: none;
+        margin: 0 auto;
+      }
+      .slide:last-of-type { break-after: auto; page-break-after: auto; }
+      hr.divider, hr.slide-divider { display: none; }
     }
   </style>
 </head>
@@ -323,9 +333,7 @@
       <div class="gotcha-num">1</div>
       <div class="gotcha-text">
         <h4>SCRAM vs md5 — The Final Blocker</h4>
-        <p>Aurora defaults to <code>scram-sha-256</code>; Redshift only speaks <code>md5</code>. Run
-        <code>SET password_encryption='md5'</code> and <code>CREATE USER</code> in
-        <strong>the same session</strong> — a new connection reverts the setting.</p>
+        <p><strong>Fix:</strong> run <code>SET password_encryption='md5'</code> and <code>CREATE USER</code> in the same session — Aurora defaults to <code>scram-sha-256</code>, which Redshift can't speak, and a new connection reverts the setting.</p>
       </div>
     </div>
 
@@ -333,8 +341,7 @@
       <div class="gotcha-num">2</div>
       <div class="gotcha-text">
         <h4>Never Use the <code>rds!cluster-…</code> Master Secret</h4>
-        <p>AWS auto-rotates it back to SCRAM, re-breaking the connection every rotation.
-        Create a dedicated <code>redshift_fed</code> md5 user with its own secret.</p>
+        <p><strong>Fix:</strong> create a dedicated <code>redshift_fed</code> md5 user with its own secret — the master secret auto-rotates back to SCRAM, re-breaking the connection every rotation.</p>
       </div>
     </div>
 
@@ -342,8 +349,7 @@
       <div class="gotcha-num">3</div>
       <div class="gotcha-text">
         <h4>Glue Is Required Even Without the Glue Console</h4>
-        <p><code>CREATE EXTERNAL DATABASE</code> writes to the Glue Data Catalog silently.
-        The IAM role needs <code>glue:CreateDatabase</code> or the schema creation fails.</p>
+        <p><strong>Fix:</strong> grant the IAM role <code>glue:CreateDatabase</code> — <code>CREATE EXTERNAL DATABASE</code> writes to the Glue Data Catalog silently and schema creation fails without it.</p>
       </div>
     </div>
 
@@ -351,9 +357,7 @@
       <div class="gotcha-num">4</div>
       <div class="gotcha-text">
         <h4>Test the Network From Inside the Redshift VPC</h4>
-        <p>Your laptop and Redshift take different network paths to Aurora.
-        A passing <code>psql</code> from your machine proves nothing about what
-        Redshift can reach. Use <code>openssl s_client</code> from inside the VPC.</p>
+        <p><strong>Fix:</strong> use <code>openssl s_client</code> from inside the VPC — a passing <code>psql</code> from your laptop takes a different network path and proves nothing about what Redshift itself can reach.</p>
       </div>
     </div>
 
@@ -361,9 +365,7 @@
       <div class="gotcha-num">5</div>
       <div class="gotcha-text">
         <h4>TLS Fixes Happen on Aurora — Not Redshift</h4>
-        <p><code>CREATE EXTERNAL SCHEMA … FROM POSTGRES</code> has no SSL knob.
-        All cert and TLS issues are resolved on the Aurora side
-        (CA identifier, SG rules, VPC routing).</p>
+        <p><strong>Fix:</strong> resolve cert/TLS issues on the Aurora side (CA identifier, SG rules, VPC routing) — <code>CREATE EXTERNAL SCHEMA … FROM POSTGRES</code> has no SSL knob of its own.</p>
       </div>
     </div>
 
@@ -371,9 +373,7 @@
       <div class="gotcha-num">6</div>
       <div class="gotcha-text">
         <h4>Keep Everything in the Same Region</h4>
-        <p>Redshift, Aurora, and S3 data must all be in <code>us-west-2</code>.
-        The TICKIT sample lives in <code>us-east-1</code> — copy it to your bucket first,
-        or pay cross-region latency and egress charges.</p>
+        <p><strong>Fix:</strong> keep Redshift, Aurora, and the S3 data all in the same region — cross-region adds latency and egress charges (the TICKIT sample defaults to <code>us-east-1</code>, so copy it first).</p>
       </div>
     </div>
 
@@ -381,8 +381,7 @@
       <div class="gotcha-num">7</div>
       <div class="gotcha-text">
         <h4><code>LOCATION</code> Is a Folder Prefix, Not a File</h4>
-        <p>Must end with <code>/</code> — Spectrum reads every file under the prefix.
-        Pointing at a file path rather than a folder returns 0 rows with no error.</p>
+        <p><strong>Fix:</strong> always end <code>LOCATION</code> with <code>/</code> — a file path instead of a folder prefix silently returns 0 rows with no error.</p>
       </div>
     </div>
 
@@ -390,8 +389,7 @@
       <div class="gotcha-num">8</div>
       <div class="gotcha-text">
         <h4>Partitioned Tables Need Explicit <code>ADD PARTITION</code></h4>
-        <p>Spectrum does not auto-discover partitions. Each partition must be registered
-        with <code>ALTER TABLE … ADD PARTITION</code>. No crawler = no automation.</p>
+        <p><strong>Fix:</strong> register every partition with <code>ALTER TABLE … ADD PARTITION</code> — Spectrum doesn't auto-discover partitions and there's no crawler for it.</p>
       </div>
     </div>
 

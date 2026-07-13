@@ -8,7 +8,7 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    background: #0f1117;
+    background: #020617;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     color: #94a3b8;
     padding: 40px 20px;
@@ -22,7 +22,7 @@
     padding: 56px 72px;
     box-shadow: 0 24px 64px rgba(0,0,0,.6);
     position: relative;
-    background: linear-gradient(135deg, #0a0f1e 0%, #0d1428 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #0a1830 100%);
   }
 
   .slide-number {
@@ -39,7 +39,7 @@
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #FF9900;
+    color: #3eadf3;
     margin-bottom: 14px;
   }
 
@@ -74,7 +74,7 @@
 
   .divider {
     height: 2px;
-    background: linear-gradient(90deg, #FF9900 0%, transparent 100%);
+    background: linear-gradient(90deg, #3eadf3 0%, transparent 100%);
     margin: 18px 0 28px 0;
     width: 80px;
   }
@@ -118,7 +118,7 @@
   }
 
   tbody td:first-child {
-    border-left: 3px solid #FF9900;
+    border-left: 3px solid #3eadf3;
     color: #e2e8f0;
     font-weight: 500;
   }
@@ -169,10 +169,10 @@
     padding: 20px;
   }
 
-  .card-orange  { border-left: 3px solid #FF9900; }
+  .card-orange  { border-left: 3px solid #3eadf3; }
   .card-green   { border-left: 3px solid #22c55e; }
   .card-red     { border-left: 3px solid #ef4444; }
-  .card-yellow  { border-left: 3px solid #f59e0b; }
+  .card-yellow  { border-left: 3px solid #fb923c; }
 
   /* Lists */
   ul {
@@ -192,7 +192,7 @@
     content: "▸";
     position: absolute;
     left: 0;
-    color: #FF9900;
+    color: #3eadf3;
     font-size: 11px;
     top: 7px;
   }
@@ -210,7 +210,7 @@
   }
 
   /* Highlights */
-  .accent { color: #FF9900; font-weight: 600; }
+  .accent { color: #3eadf3; font-weight: 600; }
   .light  { color: #f1f5f9; }
   .muted  { color: #64748b; }
 
@@ -223,15 +223,15 @@
     color: #cbd5e1;
     line-height: 1.6;
   }
-  .note-o { background: rgba(255,153,0,0.08);  border: 1px solid rgba(255,153,0,0.25); }
+  .note-o { background: rgba(62,173,243,0.08);  border: 1px solid rgba(62,173,243,0.25); }
   .note-r { background: rgba(239,68,68,0.06);  border: 1px solid rgba(239,68,68,0.2); }
   .note-g { background: rgba(34,197,94,0.06);  border: 1px solid rgba(34,197,94,0.2); }
-  .note-y { background: rgba(245,158,11,0.06); border: 1px solid rgba(245,158,11,0.2); }
+  .note-y { background: rgba(251,146,60,0.06); border: 1px solid rgba(251,146,60,0.2); }
 
   /* Status icons */
   .check { color: #22c55e; font-weight: 700; }
   .cross { color: #ef4444; font-weight: 700; }
-  .warn  { color: #f59e0b; font-weight: 700; }
+  .warn  { color: #fb923c; font-weight: 700; }
 
   /* Architecture box */
   .arch-box {
@@ -244,7 +244,7 @@
 
   .arch-box h3 {
     font-size: 14px;
-    color: #FF9900;
+    color: #3eadf3;
     margin-bottom: 8px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -263,9 +263,9 @@
     height: 24px;
     min-width: 24px;
     border-radius: 50%;
-    background: rgba(255,153,0,0.15);
-    border: 1px solid #FF9900;
-    color: #FF9900;
+    background: rgba(62,173,243,0.15);
+    border: 1px solid #3eadf3;
+    color: #3eadf3;
     font-size: 11px;
     font-weight: 700;
     display: flex;
@@ -279,12 +279,12 @@
   /* Tag / badge */
   .tag {
     display: inline-block;
-    background: rgba(255,153,0,0.12);
-    border: 1px solid rgba(255,153,0,0.3);
+    background: rgba(62,173,243,0.12);
+    border: 1px solid rgba(62,173,243,0.3);
     border-radius: 4px;
     padding: 2px 8px;
     font-size: 12px;
-    color: #FF9900;
+    color: #3eadf3;
     font-family: 'Fira Mono', monospace;
     margin: 2px 2px;
   }
@@ -302,9 +302,9 @@
   }
 
   .tag-yellow {
-    background: rgba(245,158,11,0.1);
-    border-color: rgba(245,158,11,0.3);
-    color: #f59e0b;
+    background: rgba(251,146,60,0.1);
+    border-color: rgba(251,146,60,0.3);
+    color: #fb923c;
   }
 
   /* Decision tree */
@@ -317,7 +317,7 @@
     font-size: 13px;
   }
   .decision strong { color: #f1f5f9; }
-  .decision .arrow { color: #FF9900; margin: 0 6px; }
+  .decision .arrow { color: #3eadf3; margin: 0 6px; }
 
   /* Module list */
   .module-list {
@@ -357,6 +357,20 @@
     font-size: 16px;
     margin-top: 2px;
     flex-shrink: 0;
+  }
+
+  @media print {
+    @page { size: 1280px 720px; margin: 0; }
+    .slide {
+      break-after: page;
+      page-break-after: always;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      box-shadow: none;
+      margin: 0 auto;
+    }
+    .slide:last-of-type { break-after: auto; page-break-after: auto; }
+    hr.divider, hr.slide-divider { display: none; }
   }
 </style>
 </head>
@@ -414,7 +428,7 @@
           <li>Splits the plan into pieces and ships them to compute nodes</li>
           <li>Aggregates partial results returned by compute nodes</li>
           <li>Returns final result set to your client</li>
-          <li style="color: #f59e0b;"><span style="color: #f59e0b;">Holds NO table data</span> — it's purely the orchestrator</li>
+          <li style="color: #fb923c;"><span style="color: #fb923c;">Holds NO table data</span> — it's purely the orchestrator</li>
         </ul>
       </div>
       <div class="arch-box">
@@ -442,7 +456,7 @@
       </div>
 
       <div class="note note-o" style="margin-top: 16px;">
-        The parallelism factor is determined by the number of <strong style="color: #FF9900;">slices</strong> across all compute nodes — not just the node count. A 10-node cluster with 4 slices/node gives 40-way parallelism.
+        The parallelism factor is determined by the number of <strong style="color: #3eadf3;">slices</strong> across all compute nodes — not just the node count. A 10-node cluster with 4 slices/node gives 40-way parallelism.
       </div>
     </div>
   </div>
@@ -523,7 +537,7 @@ ORDER BY rows DESC;</pre>
   <div class="grid-2" style="gap: 28px;">
     <div>
       <div class="card card-orange" style="margin-bottom: 10px; padding: 14px 18px;">
-        <h3 style="font-size: 14px; color: #FF9900; margin-bottom: 6px;">KEY — rows hashed by a column</h3>
+        <h3 style="font-size: 14px; color: #3eadf3; margin-bottom: 6px;">KEY — rows hashed by a column</h3>
         <pre style="margin: 6px 0; font-size: 12px;">CREATE TABLE orders (...) DISTKEY (customer_id);</pre>
         <p style="font-size: 12px; line-height: 1.5;">All rows with same customer_id land on same slice. <span class="check">Best when:</span> frequently joining on that column. <span class="cross">Worst when:</span> column has skewed cardinality.</p>
       </div>
@@ -540,7 +554,7 @@ ORDER BY rows DESC;</pre>
         <p style="font-size: 12px; line-height: 1.5;">Rows distributed round-robin. <span class="check">Best when:</span> table isn't joined to other big tables. No skew risk. <span class="cross">Worst when:</span> frequently joining on a specific column.</p>
       </div>
       <div class="card card-yellow" style="margin-bottom: 10px; padding: 14px 18px;">
-        <h3 style="font-size: 14px; color: #f59e0b; margin-bottom: 6px;">AUTO — Redshift decides</h3>
+        <h3 style="font-size: 14px; color: #fb923c; margin-bottom: 6px;">AUTO — Redshift decides</h3>
         <p style="font-size: 12px; line-height: 1.5;">Picks ALL for small tables, EVEN for medium, KEY when it detects a clear pattern. Re-evaluates as the table grows. Good default when you're unsure.</p>
       </div>
       <div class="decision">
@@ -560,11 +574,11 @@ ORDER BY rows DESC;</pre>
   <div class="eyebrow">Data Layout</div>
   <h2>Sort Keys: Compound vs Interleaved</h2>
   <div class="divider"></div>
-  <p style="margin-bottom: 18px; font-size: 14px;">Sort keys decide the physical row order within each slice. That ordering enables <strong style="color: #f1f5f9;">zone-map block pruning</strong> — Redshift can skip entire 1MB blocks without reading them if the block's min/max values don't match a WHERE predicate.</p>
+  <p style="margin-bottom: 18px; font-size: 14px;">Sort keys decide the physical row order within each slice, which is what makes zone-map block pruning effective (mechanic covered in the Columnar Storage module) — Redshift skips blocks whose min/max can't match the WHERE predicate.</p>
 
   <div class="grid-2" style="gap: 40px;">
     <div>
-      <h3 style="color: #FF9900; font-size: 16px; margin-bottom: 10px;">Compound sort key</h3>
+      <h3 style="color: #3eadf3; font-size: 16px; margin-bottom: 10px;">Compound sort key</h3>
       <pre>CREATE TABLE orders (...)
   SORTKEY (order_date, region);</pre>
       <ul style="margin: 12px 0;">
@@ -575,7 +589,7 @@ ORDER BY rows DESC;</pre>
       </ul>
     </div>
     <div>
-      <h3 style="color: #f59e0b; font-size: 16px; margin-bottom: 10px;">Interleaved sort key</h3>
+      <h3 style="color: #fb923c; font-size: 16px; margin-bottom: 10px;">Interleaved sort key</h3>
       <pre>CREATE TABLE orders (...)
   INTERLEAVED SORTKEY (order_date, region, customer_id);</pre>
       <ul style="margin: 12px 0;">
@@ -589,7 +603,7 @@ ORDER BY rows DESC;</pre>
   </div>
 
   <div class="note note-o" style="margin-top: 20px;">
-    <strong style="color: #FF9900;">Rule of thumb:</strong> If 80% of queries filter on the same first column (usually a date), use compound. If queries filter on different columns roughly equally, use interleaved — but accept the maintenance cost of periodic <code>VACUUM REINDEX</code>.
+    <strong style="color: #3eadf3;">Rule of thumb:</strong> If 80% of queries filter on the same first column (usually a date), use compound. If queries filter on different columns roughly equally, use interleaved — but accept the maintenance cost of periodic <code>VACUUM REINDEX</code>.
   </div>
   <div class="slide-number">5 / 12</div>
 </div>
@@ -597,75 +611,22 @@ ORDER BY rows DESC;</pre>
 <!-- Slide 6 -->
 <div class="slide">
   <div class="eyebrow">Data Layout</div>
-  <h2>Compression Encodings</h2>
+  <h2>Compression Encodings — Redshift's Application of Them</h2>
   <div class="divider"></div>
-  <div class="grid-2" style="gap: 40px;">
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>Encoding</th>
-            <th>Best for</th>
-            <th>Ratio</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>AZ64</td>
-            <td>Numeric, dates, timestamps (Amazon's default)</td>
-            <td>2-5×</td>
-          </tr>
-          <tr>
-            <td>ZSTD</td>
-            <td>General-purpose fallback, strings</td>
-            <td>3-10×</td>
-          </tr>
-          <tr>
-            <td>BYTEDICT</td>
-            <td>Strings with low cardinality (&lt; 256 distinct values)</td>
-            <td>10-40×</td>
-          </tr>
-          <tr>
-            <td>DELTA / DELTA32K</td>
-            <td>Sequential integers, dates</td>
-            <td>10-30×</td>
-          </tr>
-          <tr>
-            <td>MOSTLY8/16/32</td>
-            <td>Integers that fit in smaller types most of the time</td>
-            <td>2-4×</td>
-          </tr>
-          <tr>
-            <td>RUNLENGTH</td>
-            <td>Columns with long runs of the same value</td>
-            <td>10-100×</td>
-          </tr>
-          <tr>
-            <td>TEXT255 / TEXT32K</td>
-            <td>VARCHAR with short distinct values</td>
-            <td>5-10×</td>
-          </tr>
-          <tr>
-            <td>RAW</td>
-            <td>No compression (only if column is uncompressible)</td>
-            <td>1×</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div>
-      <h3 style="margin-bottom: 12px; font-size: 15px;">Don't pick by hand for first iteration</h3>
-      <p style="font-size: 14px; margin-bottom: 10px;">Let Redshift sample your data during COPY and apply encodings automatically:</p>
-      <pre>COPY orders FROM 's3://bucket/path/'
+  <p style="margin-bottom: 18px; font-size: 14px;">The encoding types themselves (BYTEDICT, DELTA, RUNLENGTH, AZ64, ZSTD, and when each fits) are covered in the Columnar Storage module. What's specific to Redshift is how it picks and applies them for you.</p>
+
+  <div style="max-width: 640px;">
+    <h3 style="margin-bottom: 12px; font-size: 15px;">Don't pick by hand for the first iteration</h3>
+    <p style="font-size: 14px; margin-bottom: 10px;">Let Redshift sample your data during COPY and apply encodings automatically:</p>
+    <pre>COPY orders FROM 's3://bucket/path/'
 IAM_ROLE 'arn:aws:iam::ACCT:role/RedshiftCOPYRole'
 COMPUPDATE ON;</pre>
 
-      <p style="font-size: 14px; margin: 12px 0 10px;">Or preview without applying:</p>
-      <pre>ANALYZE COMPRESSION orders;</pre>
+    <p style="font-size: 14px; margin: 12px 0 10px;">Or preview without applying:</p>
+    <pre>ANALYZE COMPRESSION orders;</pre>
 
-      <div class="note note-o" style="margin-top: 14px;">
-        <strong style="color: #FF9900;">Why compression matters beyond storage:</strong> Smaller columns = fewer disk blocks read per query = faster scans. BYTEDICT on a low-cardinality string column can make a GROUP BY on that column 5-10× faster even ignoring storage savings.
-      </div>
+    <div class="note note-o" style="margin-top: 14px;">
+      <strong style="color: #3eadf3;">Why compression matters beyond storage:</strong> smaller columns mean fewer disk blocks read per query — the storage savings and the query-speed improvement come from the same mechanism.
     </div>
   </div>
   <div class="slide-number">6 / 12</div>
@@ -694,7 +655,7 @@ RESET query_group;</pre>
       <p style="font-size: 13px; line-height: 1.6;">Identifies short queries (sub-second) and routes them to a fast lane so they aren't stuck behind a 10-minute aggregation. On by default.</p>
 
       <div class="note note-o" style="margin-top: 14px;">
-        <strong style="color: #FF9900;">Queue design tip:</strong> Create at least three queues: <code>dashboards</code> (high memory, low concurrency), <code>reports</code> (medium), <code>etl</code> (low memory, runs off-hours). Prevents ETL from blocking dashboards.
+        <strong style="color: #3eadf3;">Queue design tip:</strong> Create at least three queues: <code>dashboards</code> (high memory, low concurrency), <code>reports</code> (medium), <code>etl</code> (low memory, runs off-hours). Prevents ETL from blocking dashboards.
       </div>
     </div>
   </div>
@@ -747,11 +708,7 @@ GROUP BY region;</pre>
         </tbody>
       </table>
       <h3 style="font-size: 14px; margin-top: 12px; margin-bottom: 6px;">Step 2 — Check actual execution</h3>
-      <pre style="font-size: 12px;">SELECT query, elapsed, rows, bytes
-FROM stl_query
-WHERE userid = 100
-ORDER BY starttime DESC
-LIMIT 20;</pre>
+      <p style="font-size: 12.5px;">Cross-check the plan against real execution history in system table <code>stl_query</code> (columns: <code>query</code>, <code>elapsed</code>, <code>rows</code>, <code>bytes</code>) to see what actually ran, not just what was planned.</p>
     </div>
     <div>
       <h3 style="font-size: 14px; margin-bottom: 10px;">Step 3 — Common pitfalls</h3>
@@ -792,7 +749,7 @@ LIMIT 20;</pre>
         </tbody>
       </table>
       <div class="note note-o" style="margin-top: 14px; font-size: 12px;">
-        Most slow Redshift queries are slow for one of three reasons: <strong style="color: #FF9900;">wrong distribution</strong>, <strong style="color: #FF9900;">wrong sort key</strong>, or <strong style="color: #FF9900;">stale statistics</strong>. Check in that order.
+        Most slow Redshift queries are slow for one of three reasons: <strong style="color: #3eadf3;">wrong distribution</strong>, <strong style="color: #3eadf3;">wrong sort key</strong>, or <strong style="color: #3eadf3;">stale statistics</strong>. Check in that order.
       </div>
     </div>
   </div>
@@ -806,14 +763,14 @@ LIMIT 20;</pre>
   <div class="divider"></div>
   <div class="grid-2" style="gap: 44px;">
     <div>
-      <h3 style="margin-bottom: 10px; color: #FF9900;">VACUUM — reclaim space and re-sort</h3>
+      <h3 style="margin-bottom: 10px; color: #3eadf3;">VACUUM — reclaim space and re-sort</h3>
       <p style="font-size: 13px; margin-bottom: 10px;">DELETE and UPDATE don't immediately remove rows — they mark them as "ghosted." VACUUM reclaims the space and re-sorts new INSERTs back into sort key order.</p>
       <pre style="font-size: 12px;">VACUUM orders;              -- full vacuum (sort + reclaim)
 VACUUM DELETE ONLY orders;  -- just reclaim space
 VACUUM SORT ONLY orders;    -- just re-sort
 VACUUM REINDEX orders;      -- for interleaved sort keys</pre>
 
-      <h3 style="margin-top: 20px; margin-bottom: 10px; color: #FF9900;">ANALYZE — refresh statistics for the query planner</h3>
+      <h3 style="margin-top: 20px; margin-bottom: 10px; color: #3eadf3;">ANALYZE — refresh statistics for the query planner</h3>
       <p style="font-size: 13px; margin-bottom: 10px;">Without fresh stats, the planner picks bad join orders, wrong distribution choices, sub-optimal scan paths.</p>
       <pre style="font-size: 12px;">ANALYZE orders;                      -- refresh all column stats
 ANALYZE orders (order_date, region); -- just those columns</pre>
@@ -851,7 +808,7 @@ ANALYZE orders (order_date, region); -- just those columns</pre>
         </tbody>
       </table>
       <div class="note note-y" style="margin-top: 16px;">
-        <strong style="color: #f59e0b;">Redshift auto-manages ANALYZE and VACUUM</strong> for most workloads since 2020. You need to intervene manually mainly when: you're doing very large one-time loads, running bulk deletes, or you have interleaved sort keys that need REINDEX.
+        <strong style="color: #fb923c;">Redshift auto-manages ANALYZE and VACUUM</strong> for most workloads since 2020. You need to intervene manually mainly when: you're doing very large one-time loads, running bulk deletes, or you have interleaved sort keys that need REINDEX.
       </div>
     </div>
   </div>
@@ -906,7 +863,7 @@ ANALYZE orders (order_date, region); -- just those columns</pre>
         </tbody>
       </table>
       <div class="note note-o" style="margin-top: 14px;">
-        <strong style="color: #FF9900;">Hybrid pattern:</strong> Provisioned for steady-state ETL workload + serverless workgroups for ad-hoc analyst queries, sharing the same data via data sharing. You get cost efficiency on both ends.
+        <strong style="color: #3eadf3;">Hybrid pattern:</strong> Provisioned for steady-state ETL workload + serverless workgroups for ad-hoc analyst queries, sharing the same data via data sharing. You get cost efficiency on both ends.
       </div>
     </div>
   </div>
@@ -1019,7 +976,7 @@ ANALYZE orders (order_date, region); -- just those columns</pre>
       </ol>
 
       <div class="note note-o" style="margin-top: 20px;">
-        <strong style="color: #FF9900;">What's next — Redshift integrations:</strong> Spectrum (querying S3 from Redshift), data sharing across accounts, federated queries to RDS, and zero-ETL integrations from operational databases.
+        <strong style="color: #3eadf3;">What's next — Redshift integrations:</strong> Spectrum (querying S3 from Redshift), data sharing across accounts, federated queries to RDS, and zero-ETL integrations from operational databases.
       </div>
     </div>
   </div>

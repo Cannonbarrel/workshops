@@ -53,9 +53,9 @@
       text-transform: uppercase;
       padding: 5px 14px;
       border-radius: 20px;
-      background: #fef2f2;
-      color: #dc2626;
-      border: 1px solid #fca5a5;
+      background: #eff9ff;
+      color: #1276c0;
+      border: 1px solid #7dd0ff;
     }
 
     .slide-num {
@@ -128,7 +128,7 @@
       font-weight: 700;
       letter-spacing: .14em;
       text-transform: uppercase;
-      color: #dc2626;
+      color: #1276c0;
       margin-bottom: 14px;
     }
 
@@ -141,7 +141,7 @@
 
     .objectives-card ul li::before {
       content: "→ ";
-      color: #dc2626;
+      color: #1276c0;
       font-weight: 700;
     }
 
@@ -640,6 +640,20 @@
 
     .kb-text { color: #374151; line-height: 1.5; }
     .kb-text strong { color: #0f172a; }
+
+    @media print {
+      @page { size: 1280px 720px; margin: 0; }
+      .slide {
+        break-after: page;
+        page-break-after: always;
+        break-inside: avoid;
+        page-break-inside: avoid;
+        box-shadow: none;
+        margin: 0 auto;
+      }
+      .slide:last-of-type { break-after: auto; page-break-after: auto; }
+      hr.divider, hr.slide-divider { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -836,7 +850,6 @@
         <li>Restrict to specific IAM principals (service roles, not individuals)</li>
         <li>Enforce HTTPS — deny <code>aws:SecureTransport: false</code></li>
         <li>Block public ACLs at the account level (S3 Block Public Access)</li>
-        <li>Scope resource to prefix level, not whole bucket where possible</li>
       </ul>
       <div class="nc-rule">Deny: "aws:sourceVpce" ≠ your VPC endpoint ID</div>
     </div>
@@ -846,12 +859,12 @@
       <h3>VPC Endpoints</h3>
       <ul>
         <li><strong style="color:#166534;">Gateway endpoint</strong> — S3 &amp; DynamoDB: free, route-table-based, no ENI</li>
-        <li><strong style="color:#166534;">Interface endpoint</strong> — all other services: creates ENI in your subnet, private IP, SG controls</li>
+        <li><strong style="color:#166534;">Interface endpoint</strong> — every other integrated service (DynamoDB also supports Interface, for PrivateLink/cross-VPC access — the two types aren't mutually exclusive)</li>
         <li>Once endpoint is in place, traffic never traverses the public internet</li>
-        <li>Endpoint policy limits which S3 buckets the endpoint can reach</li>
+        <li>Endpoint policy limits which resources the endpoint can reach</li>
         <li>Use separate endpoints per subnet for HA across AZs</li>
       </ul>
-      <div class="nc-rule">Services: S3, STS, Glue, Athena, Secrets Manager, KMS</div>
+      <div class="nc-rule">Services: S3, DynamoDB, STS, Glue, Athena, Secrets Manager, KMS</div>
     </div>
 
     <div class="net-card">
@@ -859,27 +872,14 @@
       <h3>VPC Architecture for Data Platform</h3>
       <ul>
         <li>All compute (Glue, Lambda, DMS, Redshift) in private subnets — no internet gateway route</li>
-        <li>Security groups: allow only required service-to-service ports</li>
-        <li>NACLs as a coarse subnet-level backstop</li>
+        <li>Security groups allow only required service-to-service ports; NACLs as a coarse subnet-level backstop</li>
         <li>No public IP addresses on data service instances</li>
         <li>NAT gateway only if external dependencies genuinely require outbound internet</li>
-        <li>Separate VPCs per environment (dev / staging / prod) with Transit Gateway or peering for approved paths</li>
+        <li>Separate VPCs per environment (dev/staging/prod) with Transit Gateway or peering for approved paths</li>
       </ul>
       <div class="nc-rule">Rule: if data can leave via public IP, the network design is wrong</div>
     </div>
 
-  </div>
-
-  <div class="vpc-flow">
-    <span class="vf-label">Private Data Path (no internet)</span>
-    <span class="vpc-chip">Lambda (private subnet)</span>
-    <span class="vpc-arrow">→</span>
-    <span class="vpc-chip">VPC Endpoint (S3 Gateway)</span>
-    <span class="vpc-arrow">→</span>
-    <span class="vpc-chip">S3 Bucket (VPC-only policy)</span>
-    <span class="vpc-arrow">→</span>
-    <span class="vpc-chip">KMS (Interface endpoint)</span>
-    <span style="margin-left:auto;font-size:12px;color:#475569;">Zero public internet traversal</span>
   </div>
 
   <div class="key-bar" style="margin-top:12px;">
@@ -951,26 +951,14 @@
     </div>
 
     <div class="scp-col">
-      <h3>SCPs — Org-Level Controls</h3>
+      <h3>SCPs &amp; Permission Boundaries — Org-Level Controls</h3>
 
       <div class="scp-card">
-        <h4>Common Data Platform SCPs</h4>
+        <h4>Common Data Platform SCPs &amp; Boundaries</h4>
         <ul>
-          <li>Deny disabling S3 Block Public Access</li>
-          <li>Deny deleting CloudTrail trails</li>
-          <li>Deny creating unencrypted S3 buckets</li>
-          <li>Restrict to approved regions only</li>
-          <li>Deny IAM actions that could create admin roles without boundaries</li>
-        </ul>
-      </div>
-
-      <div class="scp-card">
-        <h4>Permission Boundaries in Practice</h4>
-        <ul>
-          <li>Attach a boundary to every role a team creates</li>
-          <li>Boundary says: "this role can never exceed read-only on S3"</li>
-          <li>Team can grant the role any identity policy — boundary caps it</li>
-          <li>Prevents privilege escalation through role creation</li>
+          <li>Deny disabling S3 Block Public Access; deny deleting CloudTrail trails</li>
+          <li>Deny creating unencrypted S3 buckets; restrict to approved regions only</li>
+          <li>Permission boundaries cap what a team-created role can ever do ("never exceed read-only on S3"), independent of its identity policy — prevents privilege escalation through role creation</li>
         </ul>
       </div>
 
@@ -979,15 +967,7 @@
         An explicit <code>Deny</code> at ANY layer (SCP, boundary, IAM, resource policy, LF) overrides every Allow above it. When debugging access denials, check all five layers — not just IAM.
       </div>
 
-      <div class="scp-card" style="border-left-color:#06b6d4;background:#ecfeff;">
-        <h4 style="color:#0e7490;">IAM + LF Hybrid: the critical rule</h4>
-        <ul>
-          <li>IAM controls <em>which AWS APIs</em> the principal can call</li>
-          <li>Lake Formation controls <em>which data</em> the query can see</li>
-          <li>Both must Allow — missing either blocks access</li>
-          <li>LF column/row filters apply after IAM clears the API call</li>
-        </ul>
-      </div>
+      <div class="note" style="font-size:12px;color:#64748b;margin-top:2px;">The IAM + Lake Formation "both must Allow" mechanic is covered in Module 5 — Lake Formation.</div>
     </div>
   </div>
 

@@ -8,7 +8,7 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    background: #0f1117;
+    background: #020617;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     color: #94a3b8;
     padding: 40px 20px;
@@ -22,7 +22,7 @@
     padding: 56px 72px;
     box-shadow: 0 24px 64px rgba(0,0,0,.6);
     position: relative;
-    background: linear-gradient(135deg, #0d1117 0%, #111827 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #0a1830 100%);
   }
 
   .slide-number {
@@ -39,7 +39,7 @@
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #FF9900;
+    color: #3eadf3;
     margin-bottom: 14px;
   }
 
@@ -81,7 +81,7 @@
 
   .divider {
     height: 2px;
-    background: linear-gradient(90deg, #FF9900 0%, transparent 100%);
+    background: linear-gradient(90deg, #3eadf3 0%, transparent 100%);
     margin: 20px 0 32px 0;
     width: 80px;
   }
@@ -125,7 +125,7 @@
   }
 
   tbody td:first-child {
-    border-left: 3px solid #FF9900;
+    border-left: 3px solid #3eadf3;
     color: #e2e8f0;
     font-weight: 500;
   }
@@ -177,7 +177,7 @@
   }
 
   .card-orange {
-    border-left: 3px solid #FF9900;
+    border-left: 3px solid #3eadf3;
   }
 
   /* Lists */
@@ -198,7 +198,7 @@
     content: "▸";
     position: absolute;
     left: 0;
-    color: #FF9900;
+    color: #3eadf3;
     font-size: 12px;
     top: 7px;
   }
@@ -215,13 +215,13 @@
   }
 
   /* Highlight text */
-  .accent { color: #FF9900; font-weight: 600; }
+  .accent { color: #3eadf3; font-weight: 600; }
   .light { color: #f1f5f9; }
 
   /* Note box */
   .note {
-    background: rgba(255,153,0,0.08);
-    border: 1px solid rgba(255,153,0,0.25);
+    background: rgba(62,173,243,0.08);
+    border: 1px solid rgba(62,173,243,0.25);
     border-radius: 8px;
     padding: 16px 20px;
     margin-top: 20px;
@@ -233,17 +233,17 @@
   /* Check / cross */
   .check { color: #22c55e; font-weight: 700; }
   .cross { color: #ef4444; font-weight: 700; }
-  .warn { color: #f59e0b; font-weight: 700; }
+  .warn { color: #fb923c; font-weight: 700; }
 
   /* Era badge */
   .era-badge {
     display: inline-block;
-    background: rgba(255,153,0,0.15);
-    border: 1px solid rgba(255,153,0,0.3);
+    background: rgba(62,173,243,0.15);
+    border: 1px solid rgba(62,173,243,0.3);
     border-radius: 20px;
     padding: 3px 12px;
     font-size: 12px;
-    color: #FF9900;
+    color: #3eadf3;
     font-weight: 600;
     margin-right: 8px;
   }
@@ -255,6 +255,20 @@
     color: #64748b;
     margin-bottom: 24px;
     display: block;
+  }
+
+  @media print {
+    @page { size: 1280px 720px; margin: 0; }
+    .slide {
+      break-after: page;
+      page-break-after: always;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      box-shadow: none;
+      margin: 0 auto;
+    }
+    .slide:last-of-type { break-after: auto; page-break-after: auto; }
+    hr.divider, hr.slide-divider { display: none; }
   }
 </style>
 </head>
@@ -363,7 +377,7 @@ GROUP BY region;</pre>
       <p style="font-size: 14px; margin-top: 6px;">Teradata, Redshift, Snowflake, BigQuery, Synapse</p>
     </div>
     <div>
-      <h3 style="margin-bottom: 12px; color: #f59e0b;">Where it still hurts</h3>
+      <h3 style="margin-bottom: 12px; color: #fb923c;">Where it still hurts</h3>
       <table>
         <thead>
           <tr>
@@ -408,12 +422,12 @@ GROUP BY region;</pre>
     <div>
       <h3 style="color: #94a3b8; margin-bottom: 12px; font-size: 16px;">Hadoop genesis (mid-2000s)</h3>
       <p style="font-size: 14px;">HDFS + MapReduce on the same commodity nodes. "Move the compute to the data." Storage and compute still scaled together — need 10× more storage? Buy 10× more nodes including CPU you don't need.</p>
-      <h3 style="color: #FF9900; margin-top: 20px; margin-bottom: 10px; font-size: 16px;">The cloud + S3 realization (2010s)</h3>
+      <h3 style="color: #3eadf3; margin-top: 20px; margin-bottom: 10px; font-size: 16px;">The cloud + S3 realization (2010s)</h3>
       <p style="font-size: 14px;">Network got fast and cheap. S3 = effectively unlimited capacity, near-zero idle cost. Spark, Presto, Athena, Trino, Snowflake — query engines that don't own their data.</p>
     </div>
     <div>
-      <div class="note" style="margin-bottom: 16px; background: rgba(255,153,0,0.06);">
-        <strong style="color: #FF9900;">Economic punchline:</strong> 100 TB of cold log data on S3: ~$2,300/month, no compute. Same 100 TB on Redshift cluster: easily $20,000+/month even if queried once a quarter.
+      <div class="note" style="margin-bottom: 16px; background: rgba(62,173,243,0.06);">
+        <strong style="color: #3eadf3;">Economic punchline:</strong> 100 TB of cold log data on S3: ~$2,300/month, no compute. Same 100 TB on Redshift cluster: easily $20,000+/month even if queried once a quarter.
       </div>
       <p style="font-size: 13px; color: #64748b; line-height: 1.6;">Plus: data is liberated from the engine — Athena for SQL, EMR for ML, DuckDB for vectorized analytics, Lambda+DynamoDB for real-time API — all pointing at the same S3 path.</p>
     </div>
@@ -609,7 +623,7 @@ GROUP BY region;</pre>
     </tbody>
   </table>
   <div class="note" style="margin-top: 24px;">
-    <strong style="color: #FF9900;">The headline benefit isn't just cost — it's architectural optionality.</strong> You can change query engines next year without moving your data. Your Parquet files on S3 are readable by Athena today, Trino tomorrow, and a custom ML pipeline the day after.
+    <strong style="color: #3eadf3;">The headline benefit isn't just cost — it's architectural optionality.</strong> You can change query engines next year without moving your data. Your Parquet files on S3 are readable by Athena today, Trino tomorrow, and a custom ML pipeline the day after.
   </div>
   <div class="slide-number">7 / 8</div>
 </div>
@@ -634,49 +648,29 @@ GROUP BY region;</pre>
         <td>Analyze what has happened, at scale</td>
       </tr>
       <tr>
-        <td>Unit of work</td>
-        <td>A row (transaction)</td>
-        <td>A file or set of files (Parquet)</td>
+        <td>Unit of work &amp; storage model</td>
+        <td>A row (transaction), row-oriented and indexed</td>
+        <td>A file or set of files (Parquet), columnar in object storage</td>
       </tr>
       <tr>
-        <td>Latency</td>
-        <td>Milliseconds for one row</td>
-        <td>Seconds-to-minutes for many rows</td>
+        <td>Latency &amp; schema</td>
+        <td>Milliseconds for one row; strict schema defined upfront</td>
+        <td>Seconds-to-minutes for many rows; often schema-on-read</td>
       </tr>
       <tr>
-        <td>Mutability</td>
-        <td>Frequent updates/deletes</td>
-        <td>Mostly append; deletes via rewrite (or lakehouse format)</td>
+        <td>Mutability &amp; concurrency</td>
+        <td>Frequent updates/deletes; thousands of concurrent writers OK</td>
+        <td>Mostly append (rewrite or lakehouse format for deletes); few writers, many readers</td>
       </tr>
       <tr>
-        <td>Storage model</td>
-        <td>Row-oriented, indexed</td>
-        <td>Columnar files in object storage</td>
-      </tr>
-      <tr>
-        <td>Schema</td>
-        <td>Strict, defined upfront</td>
-        <td>Often schema-on-read</td>
-      </tr>
-      <tr>
-        <td>Storage cost</td>
-        <td>$$$ per TB-month</td>
-        <td>$ per TB-month</td>
+        <td>Storage cost &amp; scale ceiling</td>
+        <td>$$$ per TB-month; single TB to ~10s of TB</td>
+        <td>$ per TB-month; petabytes to exabytes</td>
       </tr>
       <tr>
         <td>Storage &amp; compute</td>
         <td>Bundled, must scale together</td>
         <td>Fully separated, scale independently</td>
-      </tr>
-      <tr>
-        <td>Scale ceiling</td>
-        <td>Single TB to ~10s of TB</td>
-        <td>Petabytes to exabytes</td>
-      </tr>
-      <tr>
-        <td>Concurrency</td>
-        <td>Thousands of concurrent writers OK</td>
-        <td>Designed for few writers, many readers</td>
       </tr>
       <tr>
         <td>You use it when</td>
@@ -686,7 +680,7 @@ GROUP BY region;</pre>
     </tbody>
   </table>
   <div class="note" style="margin-top: 16px;">
-    <strong style="color: #FF9900;">The two are complementary, not competitive.</strong> Operational DBs are the source of truth. S3 is where the analytical copy of that truth accumulates. CDC (Change Data Capture) is the bridge between them.
+    <strong style="color: #3eadf3;">The two are complementary, not competitive.</strong> Operational DBs are the source of truth. S3 is where the analytical copy of that truth accumulates. CDC (Change Data Capture, covered in Module 7) is the bridge between them.
   </div>
   <div class="slide-number">8 / 8</div>
 </div>

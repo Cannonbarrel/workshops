@@ -8,7 +8,7 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    background: #0f1117;
+    background: #020617;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     color: #f1f5f9;
     padding: 40px 0;
@@ -21,11 +21,11 @@
     margin: 40px auto;
     padding: 56px 72px;
     border-radius: 12px;
-    background: linear-gradient(135deg, #0f1f1f 0%, #0a2a2a 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #0a1830 100%);
     position: relative;
     display: flex;
     flex-direction: column;
-    border: 1px solid rgba(255,153,0,0.12);
+    border: 1px solid rgba(62,173,243,0.12);
     box-shadow: 0 8px 40px rgba(0,0,0,0.6);
   }
 
@@ -34,7 +34,7 @@
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #FF9900;
+    color: #3eadf3;
     margin-bottom: 16px;
   }
 
@@ -62,7 +62,7 @@
 
   .divider {
     height: 2px;
-    background: linear-gradient(90deg, #FF9900 0%, transparent 100%);
+    background: linear-gradient(90deg, #3eadf3 0%, transparent 100%);
     margin-bottom: 36px;
     width: 80px;
   }
@@ -75,7 +75,7 @@
   }
 
   .highlight {
-    color: #FF9900;
+    color: #3eadf3;
     font-weight: 600;
   }
 
@@ -110,7 +110,7 @@
   }
 
   tbody tr:hover {
-    background: rgba(255,153,0,0.05);
+    background: rgba(62,173,243,0.05);
   }
 
   tbody td {
@@ -123,7 +123,7 @@
   }
 
   tbody td:first-child {
-    border-left: 3px solid #FF9900;
+    border-left: 3px solid #3eadf3;
     color: #e2e8f0;
     font-weight: 500;
   }
@@ -188,9 +188,9 @@
 
   /* Info box */
   .info-box {
-    background: rgba(255,153,0,0.07);
-    border: 1px solid rgba(255,153,0,0.25);
-    border-left: 4px solid #FF9900;
+    background: rgba(62,173,243,0.07);
+    border: 1px solid rgba(62,173,243,0.25);
+    border-left: 4px solid #3eadf3;
     border-radius: 8px;
     padding: 16px 20px;
     margin: 20px 0;
@@ -224,8 +224,8 @@
 
   .pipeline-steps li::before {
     content: counter(step);
-    background: #FF9900;
-    color: #0f1117;
+    background: #3eadf3;
+    color: #020617;
     font-weight: 800;
     font-size: 11px;
     width: 22px;
@@ -240,8 +240,8 @@
 
   .tag {
     display: inline-block;
-    background: rgba(255,153,0,0.15);
-    color: #FF9900;
+    background: rgba(62,173,243,0.15);
+    color: #3eadf3;
     font-size: 11px;
     font-weight: 700;
     padding: 2px 8px;
@@ -249,6 +249,20 @@
     letter-spacing: 0.5px;
     text-transform: uppercase;
     margin-left: 8px;
+  }
+
+  @media print {
+    @page { size: 1280px 720px; margin: 0; }
+    .slide {
+      break-after: page;
+      page-break-after: always;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      box-shadow: none;
+      margin: 0 auto;
+    }
+    .slide:last-of-type { break-after: auto; page-break-after: auto; }
+    hr.divider, hr.slide-divider { display: none; }
   }
 </style>
 </head>
@@ -290,7 +304,7 @@
   </table>
 
   <div class="info-box">
-    <strong style="color:#FF9900">CDC fixes all four</strong> by reading the database's write-ahead log directly — capturing every change as a delta event (INSERT / UPDATE / DELETE) <strong>within seconds</strong>, without touching the live table.
+    <strong style="color:#3eadf3">CDC fixes all four</strong> by reading the database's write-ahead log directly — capturing every change as a delta event (INSERT / UPDATE / DELETE) <strong>within seconds</strong>, without touching the live table.
   </div>
 
   <div class="slide-number">01 / 04</div>
@@ -304,7 +318,7 @@
 
   <div class="two-col">
     <div>
-      <h2 style="font-size:18px; margin-bottom:14px; color:#FF9900;">Pipeline — Step by Step</h2>
+      <h2 style="font-size:18px; margin-bottom:14px; color:#3eadf3;">Pipeline — Step by Step</h2>
       <ol class="pipeline-steps">
         <li>Postgres commits a transaction → <strong style="color:#e2e8f0">WAL record written</strong></li>
         <li>DMS replication instance polls via <strong style="color:#e2e8f0">logical replication slot</strong></li>
@@ -315,7 +329,7 @@
       </ol>
     </div>
     <div>
-      <h2 style="font-size:18px; margin-bottom:14px; color:#FF9900;">Two Postgres Prerequisites</h2>
+      <h2 style="font-size:18px; margin-bottom:14px; color:#3eadf3;">Two Postgres Prerequisites</h2>
       <p style="margin-bottom:12px;">Two RDS Postgres parameters must be set before DMS can read the WAL:</p>
       <pre><code>rds.logical_replication = 1
 -- sets wal_level=logical after reboot</code></pre>
@@ -375,7 +389,7 @@ DELETE FROM crude_oil_daily
   </table>
 
   <div class="info-box">
-    <strong style="color:#FF9900">Why it matters:</strong> Downstream systems can replay exact mutations in order &nbsp;·&nbsp; Deletes are visible for the first time &nbsp;·&nbsp; Idempotent replay with the operation-type column as the discriminator
+    <strong style="color:#3eadf3">Why it matters:</strong> Downstream systems can replay exact mutations in order &nbsp;·&nbsp; Deletes are visible for the first time &nbsp;·&nbsp; Idempotent replay with the operation-type column as the discriminator
   </div>
 
   <div class="slide-number">03 / 04</div>
@@ -389,7 +403,7 @@ DELETE FROM crude_oil_daily
 
   <div class="two-col" style="margin-bottom:24px;">
     <div>
-      <h2 style="font-size:18px; margin-bottom:14px; color:#FF9900;">The Flow</h2>
+      <h2 style="font-size:18px; margin-bottom:14px; color:#3eadf3;">The Flow</h2>
       <ol class="pipeline-steps">
         <li>DMS writes change records to S3 prefix <strong style="color:#e2e8f0">registered with Lake Formation</strong></li>
         <li>Glue streaming job or scheduled crawler <strong style="color:#e2e8f0">merges changes</strong> into curated Iceberg / Hudi / Delta table</li>
@@ -398,7 +412,7 @@ DELETE FROM crude_oil_daily
       </ol>
     </div>
     <div>
-      <h2 style="font-size:18px; margin-bottom:14px; color:#FF9900;">Operating Model</h2>
+      <h2 style="font-size:18px; margin-bottom:14px; color:#3eadf3;">Operating Model</h2>
       <div class="info-box">
         "Data engineering owns CDC pipelines and tagging. Security owns LF grants and LF-Tag taxonomy. Analysts query Athena. <strong>Three teams, zero coordination per new dataset.</strong>"
       </div>
