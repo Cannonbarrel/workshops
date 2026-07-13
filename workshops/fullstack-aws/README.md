@@ -1,8 +1,8 @@
-# Full-Stack on AWS — Free Bootcamp Curriculum
+# Full-Stack on AWS: Free Bootcamp Curriculum
 
-> Build and ship a production-ready full-stack app on AWS — React + FastAPI + MongoDB + Terraform + GitHub Actions + AI coding tools.
+> Build and ship a production-ready full-stack app on AWS: React + FastAPI + MongoDB + Terraform + GitHub Actions + AI coding tools.
 
-**⭐ Star and fork this repo** — it's the reference you'll keep coming back to after the bootcamp.
+**⭐ Star and fork this repo.** It's the reference you'll keep coming back to after the bootcamp.
 
 ---
 
@@ -26,13 +26,13 @@ A deployable, portfolio-ready full-stack app on AWS, built with AI-assisted codi
 
 | Chapter | Topic | What's Covered |
 |---|---|---|
-| [01 — Vibe Coding](./chapters/01-vibe-coding/) | Fundamentals | Prompting strategies, building a FastAPI app with AI |
-| [02 — Backend & Databases](./chapters/02-backend-databases/) | Backend | Employee CRUD API, MongoDB integration |
-| [03 — Testing](./chapters/03-testing/) | TDD | TDD cycle, writing tests with AI assistance |
-| [04 — Security](./chapters/04-security/) | Auth | API key security, JWT authentication |
-| [05 — Infrastructure](./chapters/05-infrastructure/) | IaC | Terraform fundamentals, provisioning AWS resources |
-| [06 — Cloud & CI/CD](./chapters/06-cloud-cicd/) | AWS | EC2, Lambda, API Gateway, S3, GitHub Actions |
-| [07 — React](./chapters/07-react/) | Frontend | React labs, component architecture, full-stack integration |
+| [01: Vibe Coding](./chapters/01-vibe-coding/) | Fundamentals | Prompting strategies, building a FastAPI app with AI |
+| [02: Backend & Databases](./chapters/02-backend-databases/) | Backend | Employee CRUD API, MongoDB integration |
+| [03: Testing](./chapters/03-testing/) | TDD | TDD cycle, writing tests with AI assistance |
+| [04: Security](./chapters/04-security/) | Auth | API key security, JWT authentication |
+| [05: Infrastructure](./chapters/05-infrastructure/) | IaC | Terraform fundamentals, provisioning AWS resources |
+| [06: Cloud & CI/CD](./chapters/06-cloud-cicd/) | AWS | EC2, Lambda, API Gateway, S3, GitHub Actions |
+| [07: React](./chapters/07-react/) | Frontend | React labs, component architecture, full-stack integration |
 
 ---
 
@@ -40,10 +40,10 @@ A deployable, portfolio-ready full-stack app on AWS, built with AI-assisted codi
 
 | Project | Stack | Description |
 |---|---|---|
-| [01 — Task Tracker](./projects/01-task-tracker/) | React + Lambda + MongoDB | Kanban-style task board — full-stack capstone |
-| [02 — Notice Board](./projects/02-notice-board/) | React + S3 + Lambda | Assignment with 3 difficulty tiers |
-| [03 — URL Bookmark Saver](./projects/03-url-bookmark-saver/) | React + Lambda + DynamoDB | Serverless bookmark app with CI/CD pipeline |
-| [04 — Architecture Diagram](./projects/04-architecture-diagram/) | React + S3 + CloudFront | Static SPA deployed via Terraform |
+| [01: Task Tracker](./projects/01-task-tracker/) | React + Lambda + MongoDB | Kanban-style task board, full-stack capstone |
+| [02: Notice Board](./projects/02-notice-board/) | React + S3 + Lambda | Assignment with 3 difficulty tiers |
+| [03: URL Bookmark Saver](./projects/03-url-bookmark-saver/) | React + Lambda + DynamoDB | Serverless bookmark app with CI/CD pipeline |
+| [04: Architecture Diagram](./projects/04-architecture-diagram/) | React + S3 + CloudFront | Static SPA deployed via Terraform |
 
 Each project has working Terraform, a deploy script, and a GitHub Actions pipeline. Deploy to your own AWS account in under 30 minutes.
 
@@ -71,7 +71,7 @@ Start at [Chapter 01](./chapters/01-vibe-coding/).
 
 ---
 
-## Resource Naming (required — read before you start)
+## Resource Naming (required, read before you start)
 
 Every AWS resource you create must start with:
 
@@ -79,7 +79,7 @@ Every AWS resource you create must start with:
 student-<your-slug>-
 ```
 
-Your slug is assigned by the cohort admin (e.g. `alice-johnson`). The IAM policy enforces this — resources outside your namespace will be denied.
+Your slug is assigned by the cohort admin (e.g. `alice-johnson`). The IAM policy enforces this: resources outside your namespace will be denied.
 
 Tag every resource:
 
@@ -107,7 +107,7 @@ This curriculum is delivered as an instructor-led workshop by [beCloudReady](htt
 
 ## Sandbox Setup (Instructor / Admin)
 
-The [`terraform-iam/`](./terraform-iam/) folder provisions per-student AWS sandboxes for live cohorts — IAM users, namespace-scoped managed policies, Terraform workspaces per batch.
+The [`terraform-iam/`](./terraform-iam/) folder provisions per-student AWS sandboxes for live cohorts: IAM users, namespace-scoped managed policies, Terraform workspaces per batch.
 
 See [`admin-walkthrough.md`](./admin-walkthrough.md) for the full cohort setup process.
 
@@ -115,4 +115,4 @@ See [`admin-walkthrough.md`](./admin-walkthrough.md) for the full cohort setup p
 
 ## License
 
-MIT — fork it, use it, build on it.
+MIT. Fork it, use it, build on it.
