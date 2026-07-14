@@ -85,10 +85,13 @@ Tag every resource:
 
 | Key | Value |
 |---|---|
-| `student` | your slug |
-| `cohort` | your cohort name |
+| `workshop` | `full-stack` |
+| `autodelete` | `true` or `false` |
+| `date` | `dd-mmm-yyyy`, e.g. `12-Jul-2026` |
 
-Terraform projects handle this automatically when you pass `student_name=<slug>`.
+`autodelete=true` means it's safe for the instructor's cleanup script to delete it at the end of the batch. Use `autodelete=false` only for something you were explicitly told to keep.
+
+Terraform projects handle this automatically when you pass `student_name=<slug>` and `created_date=<dd-mmm-yyyy>`.
 
 ---
 
