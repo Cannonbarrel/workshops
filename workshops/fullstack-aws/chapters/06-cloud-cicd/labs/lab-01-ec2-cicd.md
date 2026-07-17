@@ -71,11 +71,14 @@ Once inside the EC2 instance, copy and paste this entire script into the termina
 set -e
 
 echo "=== Installing nginx ==="
-sudo apt-get update -y -q
-sudo apt-get install -y -q nginx
+# Amazon Linux uses dnf (or yum) instead of apt
+sudo dnf update -y -q
+sudo dnf install -y -q nginx
 
 echo "=== Creating Hello World page ==="
-sudo tee /var/www/html/index.html > /dev/null <<'EOF'
+# On Amazon Linux, Nginx's default document root is /usr/share/nginx/html
+sudo mkdir -p /usr/share/nginx/html
+sudo tee /usr/share/nginx/html/index.html > /dev/null <<'EOF'
 <!DOCTYPE html>
 <html>
   <head><title>Hello World</title></head>
@@ -86,10 +89,10 @@ sudo tee /var/www/html/index.html > /dev/null <<'EOF'
 </html>
 EOF
 
+echo "=== Starting Nginx service ==="
 sudo systemctl enable nginx
 sudo systemctl start nginx
 
-echo "Done! Open http://$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)"
 ```
 
 ### Step 3: Open the browser

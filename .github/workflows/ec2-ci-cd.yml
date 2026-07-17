@@ -2,7 +2,7 @@ name: Deploy to EC2
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   workflow_dispatch:
 
 jobs:
@@ -27,7 +27,7 @@ jobs:
               <head><title>Hello World</title></head>
               <body>
                 <h1>Hello World from EC2!</h1>
-                <p>Deployed via GitHub Actions.</p>
+                <p>Deployed via GitHub Actions Variables.</p>
               </body>
             </html>
             EOF
