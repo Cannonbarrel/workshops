@@ -14,12 +14,14 @@ jobs:
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USER }}
+          username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            # Update/install Nginx for Amazon Linux
+            sudo dnf install -y nginx
 
-
-            sudo tee /var/www/html/index.html > /dev/null <<'EOF'
+            # Write the Hello World page to the Amazon Linux default web root
+            sudo tee /usr/share/nginx/html/index.html > /dev/null <<'EOF'
             <!DOCTYPE html>
             <html>
               <head><title>Hello World</title></head>
@@ -30,5 +32,6 @@ jobs:
             </html>
             EOF
 
+            # Ensure Nginx is enabled and running
             sudo systemctl enable nginx
             sudo systemctl start nginx
